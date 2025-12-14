@@ -52,7 +52,7 @@ const team = [
     image: teamPriya,
   },
   {
-    name: "Suhail Kham",
+    name: "Suhail Khan",
     role: "Project Head",
     description: "Ensuring seamless project delivery and operational efficiency",
     image: teamRahul,
