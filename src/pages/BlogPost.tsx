@@ -19,7 +19,7 @@ const blogContent: Record<string, {
   "small-hotels-increase-bookings": {
     title: "How Small Hotels Can Increase Bookings Without Extra Investment",
     excerpt: "Discover proven strategies that small and boutique hotels can implement immediately to boost occupancy rates without spending extra on marketing budgets.",
-    author: "Vikram Singh",
+    author: "Amit Tamta",
     date: "December 8, 2025",
     readTime: "5 min read",
     image: heroImage,
@@ -43,7 +43,7 @@ const blogContent: Record<string, {
   "digital-marketing-hotels-2025": {
     title: "Why Digital Marketing Is Essential for Hotels in 2025",
     excerpt: "The hospitality landscape has changed dramatically. Learn why hotels that embrace digital marketing are outperforming their competitors and how you can too.",
-    author: "Priya Mehta",
+    author: "Sourav Singh",
     date: "December 5, 2025",
     readTime: "7 min read",
     image: teamImage,
@@ -67,7 +67,7 @@ const blogContent: Record<string, {
   "corporate-clients-profitable": {
     title: "Corporate Clients — The Most Profitable Segment for Hotels",
     excerpt: "Corporate travelers represent the highest-value segment for hotels. Here's how to attract and retain corporate clients for consistent revenue.",
-    author: "Rahul Verma",
+    author: "Suhail Khan",
     date: "December 1, 2025",
     readTime: "6 min read",
     image: corporateImage,
