@@ -1,22 +1,14 @@
 import { useState } from "react";
-import { Phone, Mail, MapPin, Clock, Send, CheckCircle } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { useToast } from "@/hooks/use-toast";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogDescription,
-} from "@/components/ui/dialog";
 
 export default function ContactPage() {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [showSuccess, setShowSuccess] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     hotelName: "",
@@ -68,21 +60,24 @@ export default function ContactPage() {
     }
 
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
+
+    const whatsappNumber = "919870718388";
+    const messageLines = [
+      "Hello! I'd like to get in touch.",
+      `Name: ${formData.name}`,
+      `Hotel Name: ${formData.hotelName || "N/A"}`,
+      `Phone: ${formData.phone}`,
+      `Email: ${formData.email}`,
+      `City: ${formData.city || "N/A"}`,
+      `Message: ${formData.message}`,
+    ];
+
+    const whatsappMessage = encodeURIComponent(messageLines.join("\n"));
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+
+    window.location.href = whatsappUrl;
+
     setIsSubmitting(false);
-    setShowSuccess(true);
-    setFormData({
-      name: "",
-      hotelName: "",
-      phone: "",
-      city: "",
-      email: "",
-      message: "",
-      consent: false,
-    });
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -319,30 +314,6 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
-
-      {/* Success Modal */}
-      <Dialog open={showSuccess} onOpenChange={setShowSuccess}>
-        <DialogContent className="sm:max-w-md">
-          <DialogHeader>
-            <div className="mx-auto w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4">
-              <CheckCircle className="h-8 w-8 text-green-600" />
-            </div>
-            <DialogTitle className="text-center text-2xl">Thank You!</DialogTitle>
-            <DialogDescription className="text-center">
-              Your message has been sent successfully. Our team will get back to you 
-              within 24 hours to discuss your hotel marketing needs.
-            </DialogDescription>
-          </DialogHeader>
-          <div className="flex flex-col gap-3 mt-4">
-            <Button variant="gold" onClick={() => setShowSuccess(false)}>
-              Book Free Consultation
-            </Button>
-            <Button variant="outline" onClick={() => setShowSuccess(false)}>
-              Close
-            </Button>
-          </div>
-        </DialogContent>
-      </Dialog>
     </div>
   );
 }
