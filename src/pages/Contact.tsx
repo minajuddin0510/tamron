@@ -61,7 +61,6 @@ export default function ContactPage() {
 
     setIsSubmitting(true);
 
-    const whatsappNumber = "919870718388";
     const messageLines = [
       "Hello! I'd like to get in touch.",
       `Name: ${formData.name}`,
@@ -72,12 +71,11 @@ export default function ContactPage() {
       `Message: ${formData.message}`,
     ];
 
-    const whatsappMessage = encodeURIComponent(messageLines.join("\n"));
-    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+    const whatsappUrl = `https://wa.me/919870718388?text=${encodeURIComponent(
+      messageLines.join("\n")
+    )}`;
 
     window.location.href = whatsappUrl;
-
-    setIsSubmitting(false);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
